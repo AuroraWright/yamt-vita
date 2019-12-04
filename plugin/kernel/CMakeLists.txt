@@ -14,7 +14,7 @@ include_directories(
 
 link_directories(
 	${CMAKE_CURRENT_BINARY_DIR}
-	${CMAKE_BINARY_DIR}/365_stubs
+	${CMAKE_SOURCE_DIR}/365_stubs
 )
 
 IF(NEWFW)

@@ -99,33 +99,6 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	
-	if (ex("ur0:tai/yamt.suprx") == 0) {
-		printf("Could not find yamt.suprx in ur0:tai/ !\n");
-		printf("copying... ");
-		fcp("app0:yamt.suprx", "ur0:tai/yamt.suprx");
-		printf("ok!\n");
-		if (ex("ux0:tai/config.txt") == 1 && ex("ux0:tai/config_preyamt.txt") == 0) sceIoRename("ux0:tai/config.txt", "ux0:tai/config_preyamt.txt");
-		printf("adding entry to ur0:tai/config.txt... ");
-		SceUID fd = sceIoOpen("ur0:tai/config_temp.txt", SCE_O_WRONLY | SCE_O_TRUNC | SCE_O_CREAT, 6);
-		sceIoWrite(fd, (void *)"\n# YAMT\n*NPXS10015\nur0:tai/yamt.suprx\n", strlen("\n# YAMT\n*NPXS10015\nur0:tai/yamt.suprx\n"));
-		sceIoClose(fd);
-		fcp("ur0:tai/config.txt", "ur0:tai/config_preyamt.txt");
-		fap("ur0:tai/config_temp.txt", "ur0:tai/config.txt");
-		sceIoRemove("ur0:tai/config_temp.txt");
-		printf("ok!\n");
-	} else {
-		printf("Found yamt.suprx in ur0:tai/ !\n");
-		printf("removing... ");
-		sceIoRemove("ur0:tai/yamt.suprx");
-		printf("ok!\n");
-		if (ex("ur0:tai/config_preyamt.txt") == 1) {
-			printf("restoring old config.txt... ");
-			sceIoRemove("ur0:tai/config.txt");
-			sceIoRename("ur0:tai/config_preyamt.txt", "ur0:tai/config.txt");
-			printf("ok!\n");
-		}
-	}
-	
 	printf("done!\n");
 	sceKernelDelayThread(4 * 1000 * 1000);
 	sceKernelExitProcess(0);

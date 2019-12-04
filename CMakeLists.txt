@@ -46,7 +46,6 @@ vita_create_self(${SHORT_NAME}.self ${SHORT_NAME} UNSAFE)
 vita_create_vpk(${SHORT_NAME}.vpk ${VITA_TITLEID} ${SHORT_NAME}.self
   VERSION ${VITA_VERSION}
   NAME ${VITA_APP_NAME}
-  FILE ${CMAKE_BINARY_DIR}/plugin/yamt_360.skprx yamt_360.skprx
-  FILE ${CMAKE_BINARY_DIR}/plugin/yamt_365.skprx yamt_365.skprx
-  FILE ${CMAKE_BINARY_DIR}/plugin/yamt.suprx yamt.suprx
+  FILE ${CMAKE_SOURCE_DIR}/plugin/yamt_360.skprx yamt_360.skprx
+  FILE ${CMAKE_SOURCE_DIR}/plugin/yamt_365.skprx yamt_365.skprx
 )
